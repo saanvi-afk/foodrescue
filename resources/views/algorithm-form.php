@@ -1,0 +1,5 @@
+<?php $config=$data['configuration']; ?>
+<form data-api="/api/settings/algorithm"><?php field('version','New configuration version','text','','required maxlength="100" placeholder="tamra-v2"'); ?>
+<div class="field-pair"><?php foreach ($config['weights'] as $component=>$weight):field($component,ucfirst($component) . ' weight','number',$weight,'required min="0" max="1" step="0.001"');endforeach ?></div>
+<?php field('speed_kmh','Motorized travel speed assumption (km/h)','number',$config['parameters']['speed_kmh'],'required min="1" max="100"');field('handling_minutes','Handling time assumption (minutes)','number',$config['parameters']['handling_minutes'],'required min="1" max="180"');field('urgency_horizon_minutes','Urgency horizon (minutes)','number',$config['parameters']['urgency_horizon_minutes'],'required min="1" max="10080"');formend('Save new immutable configuration'); ?>
+<p class="muted">All six weights must sum to 1. Cold-start reliability is neutral (0.5) until five terminal outcomes exist. The latest configuration applies to new operational recommendations; experiments explicitly select a version.</p>

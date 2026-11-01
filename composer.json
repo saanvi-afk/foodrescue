@@ -1,0 +1,24 @@
+{
+  "name": "foodrescue/platform",
+  "description": "Time-aware food redistribution platform",
+  "type": "project",
+  "license": "proprietary",
+  "require": {
+    "php": "^8.4",
+    "ext-pdo": "*",
+    "ext-pdo_mysql": "*",
+    "phpmailer/phpmailer": "^6.10 || ^7.0",
+    "endroid/qr-code": "^6.1",
+    "dompdf/dompdf": "^3.1",
+    "ext-gd": "*",
+    "ext-mbstring": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "FoodRescue\\": "app/"
+    }
+  },
+  "scripts": {
+    "test": "php tests/run.php"
+  }
+}
